@@ -52,19 +52,13 @@
 
 	var _reactDom = __webpack_require__(38);
 
+	var _app = __webpack_require__(168);
+
+	var _app2 = _interopRequireDefault(_app);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var App = function App(_ref) {
-	  var greeting = _ref.greeting;
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    greeting,
-	    ' '
-	  );
-	};
-
-	(0, _reactDom.render)(_react2.default.createElement(App, { greeting: 'Hello, LightBox!' }), document.getElementById('root'));
+	(0, _reactDom.render)(_react2.default.createElement(_app2.default, { greeting: 'Hello, again... LightBox!' }), document.getElementById('root'));
 
 /***/ },
 /* 1 */
@@ -20358,6 +20352,35 @@
 	var ReactMount = __webpack_require__(160);
 
 	module.exports = ReactMount.renderSubtreeIntoContainer;
+
+/***/ },
+/* 168 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (_ref) {
+	  var greeting = _ref.greeting;
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      greeting
+	    )
+	  );
+	};
 
 /***/ }
 /******/ ]);

@@ -1,9 +1,9 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-const App = ({greeting}) => <div>{ greeting } </div>;
+import App from './components/app.jsx';
 
 render(
-  <App greeting='Hello, LightBox!' />,
+  <App greeting='Hello, again... LightBox!' />,
   document.getElementById('root')
 );
