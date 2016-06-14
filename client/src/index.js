@@ -1,9 +1,14 @@
 import React from 'react';
 import {render} from 'react-dom';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
 
-import App from './components/app.jsx';
+import RootReducer from './reducers/combined-reducers';
+import App from './components/app';
 
 render(
-  <App greeting='Hello, again... LightBox!' />,
+  <Provider store={ createStore(RootReducer) } >
+    <App greeting='Hey... LightBox!' />
+  </Provider>,
   document.getElementById('root')
 );
