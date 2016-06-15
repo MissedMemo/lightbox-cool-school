@@ -3,6 +3,9 @@
     "start": "webpack -p && node server.js",
     "heroku-postbuild": "webpack -p"
   },
+  "engines": {
+    "node": "5.10.0"
+  },
   "dependencies": {
     "express": "^4.13.4",
     "react": "^15.1.0",
