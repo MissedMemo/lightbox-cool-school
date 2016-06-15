@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build": "webpack",
-    "start": "webpack && node server.js"
+    "start": "webpack -p && node server.js",
+    "heroku-postbuild": "webpack -p"
   },
   "dependencies": {
     "express": "^4.13.4",
