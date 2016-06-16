@@ -1,0 +1,44 @@
+body {
+  font-family: sans-serif;
+}
+
+html, body, .app {
+  height: 100%;
+}
+
+.app {
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  -webkit-flex-direction: column; /* Safari */
+  flex-direction:         column;
+}
+
+.page-header {
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  -webkit-flex-direction: row; /* Safari */
+  flex-direction:         row;
+  -webkit-align-items: center; /* Safari */
+  align-items: center;
+  height: 100px;
+  padding: 12px 40px;
+  background-color: gray;
+}
+
+.branding {
+  font-size: 32px;
+  color: white;
+}
+
+.main {
+  -webkit-flex: 1; /* Safari */
+  flex:         1;
+  background-color: lightblue;
+}
+
+
+
+
+
+
+
