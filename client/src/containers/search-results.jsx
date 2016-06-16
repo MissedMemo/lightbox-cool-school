@@ -4,8 +4,14 @@ import {connect} from 'react-redux';
 
 class SearchResults extends Component {
 
+  fakeGUID( baseString ) {
+    return baseString + new Date().getTime();
+  }
+
   renderList( searchResults ) {
-    return searchResults.map( image => <li>{ image.caption }</li> );
+    return searchResults.map( image => <li key={ this.fakeGUID(image.caption) }>
+      { image.caption }
+    </li> );
   }
   
   render() {
