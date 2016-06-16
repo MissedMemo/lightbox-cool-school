@@ -2,7 +2,7 @@
       Top-Level Elements
 *********************************/
 
-html, body, .app {
+html, body, #root, .app {
   height: 100%;
 }
 
@@ -90,6 +90,10 @@ body {
   outline: 0;
 }
 
+/********************************
+         Main Content
+*********************************/
+
 .main {
   -webkit-flex: 1; /* Safari */
   flex:         1;
@@ -97,16 +101,15 @@ body {
   display: flex;
   -webkit-flex-direction: row; /* Safari */
   flex-direction:         row;
-  background-color: lightblue;
 }
 
-.settings-panel {
+.main .settings-panel {
   width: 240px;
   padding: 12px;
   background-color: lightgray;
 }
 
-.results-container {
+.main .results-container {
   -webkit-flex: 1; /* Safari */
   flex:         1;
   background-color: lightblue;
