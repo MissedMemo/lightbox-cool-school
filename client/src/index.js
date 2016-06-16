@@ -8,7 +8,7 @@ import App from './components/app';
 
 render(
   <Provider store={ createStore(RootReducer) } >
-    <App greeting='Hey... LightBox!' />
+    <App />
   </Provider>,
   document.getElementById('root')
 );

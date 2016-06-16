@@ -1,7 +1,11 @@
 import React from 'react';
-import SearchResults from '../containers/search-results';
 
-export default ({greeting}) => <div>
-  <h1>{greeting}</h1>
-  <SearchResults />
+import Header from './header';
+
+
+export default () => <div className='app'>
+  <Header text='Hello, lightbox!' >
+  </Header>
+  <div className='main'>
+  </div>
 </div>;
