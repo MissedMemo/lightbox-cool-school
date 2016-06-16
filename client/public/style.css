@@ -1,9 +1,13 @@
-body {
-  font-family: sans-serif;
-}
+/********************************
+      Top-Level Elements
+*********************************/
 
 html, body, .app {
   height: 100%;
+}
+
+body {
+  font-family: sans-serif;
 }
 
 .app {
@@ -12,6 +16,10 @@ html, body, .app {
   -webkit-flex-direction: column; /* Safari */
   flex-direction:         column;
 }
+
+/********************************
+         Page Header
+*********************************/
 
 .page-header {
   display: -webkit-flex; /* Safari */
@@ -27,7 +35,59 @@ html, body, .app {
 
 .branding {
   font-size: 32px;
-  color: white;
+  letter-spacing: .2em;
+  font-style: bold;
+  color: rgba( 255,255,255, 0.75 );
+}
+
+/********************************
+         Search Bar
+*********************************/
+
+.searchbar {
+  flex: 1;
+  -webkit-flex: 1;
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  -webkit-flex-direction: row; /* Safari */
+  flex-direction:         row;
+  justify-content: flex-end;
+}
+
+.searchbar input[type='text'] {
+  padding: 8px 15px;
+  width: 300px;
+  background: rgba( 50, 50, 50, 0.2 );
+  border: 0px solid #dbdbdb;
+  font-size: 20px;
+  color: lightgray;
+}
+
+.searchbar button {
+  position:relative;
+  padding: 9px 15px;
+  top: -1px;
+  left: -2px;
+  border: none;
+  background-color: #207cca;
+  font-size: 16px;
+  color: #fafafa;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.searchbar button:hover {
+  background-color: blue;
+}
+
+.searchbar button[disabled] {
+  background-color: transparent;
+  color: darkgray;
+  border: 1px solid;
+}
+
+.searchbar button:focus {
+  outline: 0;
 }
 
 .main {
