@@ -1,0 +1,3 @@
+export const SEARCH_IMAGES = 'SEARCH_IMAGES';
+export const GET_IMAGES_SUCCESS = 'GET_IMAGES_SUCCESS';
+

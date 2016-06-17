@@ -14,14 +14,13 @@ class SearchResults extends Component {
   render() {
     return <div className='results-container'>
       { this.renderItems( this.props.results ) }
-    </div>
+    </div>;
   }
 };
 
-function mapStateToProps(state) {
-  return {
-    results: state.results
-  };
+// Note: same-name methods eliminates need to specify state or object key!
+function mapStateToProps({results}) {
+  return { results };
 };
 
 export default connect( mapStateToProps )(SearchResults);
