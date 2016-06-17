@@ -1,22 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
+import ImageTile from '../components/image-tile';
+
 
 class SearchResults extends Component {
 
-  fakeGUID( baseString ) {
-    return baseString + new Date().getTime();
-  }
-
-  renderList( searchResults ) {
-    return searchResults.map( image => <li key={ this.fakeGUID(image.caption) }>
-      { image.caption }
-    </li> );
+  renderItems( searchResults ) {
+    return searchResults.map( item => <ImageTile data={ item } /> );
+    /* Would explicit <ul> & <li> improve performance, due to 'key'? */
   }
   
   render() {
     return <div className='results-container'>
-      <ul>{ this.renderList( this.props.results ) }</ul>
+      { this.renderItems( this.props.results ) }
     </div>
   }
 };
