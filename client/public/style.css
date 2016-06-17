@@ -44,7 +44,7 @@ body {
          Search Bar
 *********************************/
 
-.searchbar {
+.search-form {
   flex: 1;
   -webkit-flex: 1;
   display: -webkit-flex; /* Safari */
@@ -54,7 +54,7 @@ body {
   justify-content: flex-end;
 }
 
-.searchbar input[type='text'] {
+.search-form input[type='text'] {
   padding: 8px 15px;
   width: 300px;
   background: rgba( 50, 50, 50, 0.2 );
@@ -63,7 +63,7 @@ body {
   color: lightgray;
 }
 
-.searchbar button {
+.search-form button {
   position:relative;
   padding: 9px 15px;
   top: -1px;
@@ -76,17 +76,17 @@ body {
   text-transform: uppercase;
 }
 
-.searchbar button:hover {
+.search-form button:hover {
   background-color: blue;
 }
 
-.searchbar button[disabled] {
+.search-form button[disabled] {
   background-color: transparent;
   color: darkgray;
   border: 1px solid;
 }
 
-.searchbar button:focus {
+.search-form button:focus {
   outline: 0;
 }
 

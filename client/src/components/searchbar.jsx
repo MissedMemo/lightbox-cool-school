@@ -1,6 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-export default () => <div className='searchbar'>
-  <input type="text" placeholder="enter image search conditions..." />
-  <button disabled >Find</button>
-</div>;
+class SearchBar extends Component {
+
+  render() {
+    return <form className='search-form'>
+      <input type='text'
+        placeholder='enter image search conditions...'
+        // value set to local state...
+      />
+      <button type='submit'>Find</button>
+    </form>;
+  }
+};
+
+export default SearchBar;
