@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { getImages } from '../actions/action-creators';
+import { searchImages } from '../actions/action-creators';
 
 
 class SearchBar extends Component {
@@ -22,7 +22,7 @@ class SearchBar extends Component {
 
   onFormSubmit(e) {
     e.preventDefault();
-    this.props.getImages( this.state.searchText );
+    this.props.searchImages( this.state.searchText );
   }
 
   render() {
@@ -42,5 +42,5 @@ class SearchBar extends Component {
 };
 
 // Note: same-name methods eliminates need to call mapDispatchToProps!
-export default connect( null, {getImages} )( SearchBar );
+export default connect( null, {searchImages} )( SearchBar );
 

@@ -1,12 +1,39 @@
 import * as id from './action-types';
+import axios from 'axios';
 
-export function getImages( searchTerms ) {
 
-  const results = fakeAjaxRequest( searchTerms );
+export function searchImages( searchTerms ) {
 
+  //const results = fakeAjaxRequest( searchTerms );
+  var query = 'https://www.googleapis.com/customsearch/v1?'
+            + 'key=AIzaSyDRNg12al500nvBg4w9vXxHxqMt4iVPgLA'
+            + '&cx=013785967554816369765:m8ndxwd7vzw'
+            + '&safe=medium'
+            + '&q=' + searchTerms;
+
+  return function(dispatch) {
+    axios.get( query )
+      .then((response) => {
+        dispatch( createSuccessAction(response) );
+      })
+      .catch((err) => {
+        dispatch( createErrorAction(err) );
+      });
+  };
+
+}
+
+function createSuccessAction( searchResults ) {
   return {
-    type: id.SEARCH_IMAGES,
-    payload: results
+    type: id.SEARCH_IMAGES_SUCCESS,
+    payload: [ 'image1', 'image2', 'image3' ] //searchResults
+  };
+}
+
+function createErrorAction( error ) {
+  return {
+    type: id.SEARCH_IMAGES_FAILED,
+    payload: error
   };
 }
 
@@ -22,3 +49,4 @@ function fakeAjaxRequest( searchTerms ) {
   
   return results;
 }
+
