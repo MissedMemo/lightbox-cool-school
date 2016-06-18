@@ -12,26 +12,28 @@ class SearchResults extends Component {
     /* Would explicit <ul> & <li> improve performance, due to 'key'? */
   }
 
+  renderMessage( matchNotFound ) {
+    return matchNotFound ? <div>
+      <span className='error'>No results found...</span><br/>
+      <span>May we suggest... gorillas?</span>
+    </div> : <div>
+      <span>Please enter a search condition</span><br/>
+      <span>May we suggest... robot kittens?</span>
+    </div>;
+  }
+
   render() {
 
-    if( !this.props.results ) { // initial, empty state
-      return <HelpfulPrompt
-        line1='Please enter a search condition'
-        line2='May we suggest... robot kittens?'
-      />;
+    if( this.props.results && this.props.results.length > 0 ) {
+      return <div className='results-container'>
+        { this.renderResults( this.props.results ) }
+      </div>;
+    } else {
+      return <div className='message-container'>
+        { this.renderMessage( this.props.results ) }
+      </div>;
     }
 
-    else if( this.props.results.length === 0 ) {
-      return <HelpfulPrompt
-        line1='No results found...'
-        line2='May we suggest... gorillas?'
-        isError={true}
-      />;
-    }
-
-    else return <div className='results-container'>
-      { this.renderResults( this.props.results ) }
-    </div>;
   }
 };
 
