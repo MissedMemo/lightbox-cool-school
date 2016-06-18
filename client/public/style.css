@@ -141,19 +141,25 @@ body {
   User Prompt and Error Messages
 *********************************/
 
-.message-area {
-  margin: 15% auto 0 auto;
+.message-container {
+  margin: 5% auto;
+  text-align: center;
+  padding: 12px;
   font-size: 32px;
   font-style: italic;
   color: lightgray;
 }
 
-.message-area p {
-  margin: 40px;
+.message-container span {
+  display: block;
 }
 
-.message-area p.primary.error {
-  color: red;
+.message-container span:first-of-type {
+  margin-bottom: 32px;
+}
+
+.message-container span.error {
+  color: rgba( 255, 0, 0, 0.5 );
 }
 
 

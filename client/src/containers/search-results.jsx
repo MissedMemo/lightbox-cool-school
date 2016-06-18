@@ -13,13 +13,13 @@ class SearchResults extends Component {
   }
 
   renderMessage( matchNotFound ) {
-    return matchNotFound ? <div>
-      <span className='error'>No results found...</span><br/>
-      <span>May we suggest... gorillas?</span>
-    </div> : <div>
-      <span>Please enter a search condition</span><br/>
+    return matchNotFound ? [
+      <span className='error'>Sorry, no matches found.</span>,
+      <span>Try searching... baby gorilla?</span>
+    ] : [
+      <span>Please enter a search condition</span>,
       <span>May we suggest... robot kittens?</span>
-    </div>;
+    ];
   }
 
   render() {
