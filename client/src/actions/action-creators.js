@@ -10,10 +10,15 @@ export function getImages( searchTerms ) {
   };
 }
 
-function fakeAjaxRequest() {
+function fakeAjaxRequest( searchTerms ) {
+  
   var results = [];
-  for( var i = 0; i < 40; i++ ) {
-    results.push( { caption: `image${ i + 1 }` } );
+
+  if( searchTerms !== 'DEBUG_NO-MATCHES-FOUND' ) {
+    for( var i = 0; i < 40; i++ ) {
+      results.push( { caption: `image${ i + 1 }` } );
+    }
   }
+  
   return results;
 }

@@ -137,9 +137,20 @@ body {
   background-color: lightblue;
 }
 
+/********************************
+  User Prompt and Error Messages
+*********************************/
 
+.message-area {
+  margin: 15% auto 0 auto;
+  font-size: 32px;
+  font-style: italic;
+  color: lightgray;
+}
 
-
+.message-area p {
+  margin: 40px;
+}
 
 
 
