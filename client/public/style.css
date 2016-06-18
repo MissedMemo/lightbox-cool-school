@@ -152,5 +152,9 @@ body {
   margin: 40px;
 }
 
+.message-area p.primary.error {
+  color: red;
+}
+
 
 

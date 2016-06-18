@@ -14,7 +14,7 @@ function fakeAjaxRequest( searchTerms ) {
   
   var results = [];
 
-  if( searchTerms !== 'DEBUG_NO-MATCHES-FOUND' ) {
+  if( searchTerms !== 'NO_RESULTS' ) {
     for( var i = 0; i < 40; i++ ) {
       results.push( { caption: `image${ i + 1 }` } );
     }
