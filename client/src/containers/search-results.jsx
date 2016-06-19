@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import ImageTile from '../components/image-tile';
-import HelpfulPrompt from '../components/helpful-prompt';
+//import HelpfulPrompt from '../components/helpful-prompt';
 
 
 class SearchResults extends Component {

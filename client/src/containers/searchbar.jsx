@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { searchImages } from '../actions/action-creators';
+import { searchImages } from '../actions/image-search';
 
 
 class SearchBar extends Component {
