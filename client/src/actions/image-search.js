@@ -24,7 +24,7 @@ export function searchImages( searchTerms ) {
 
 function queryLoremPixelAPI( searchTerm ) {
   
-  let numImages = 40;
+  let numImages = 35;
   let imageData = [];
 
   while( numImages-- ) {
