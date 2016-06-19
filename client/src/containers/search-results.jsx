@@ -15,10 +15,10 @@ class SearchResults extends Component {
   renderMessage( matchNotFound ) {
     return matchNotFound ? [
       <span className='error'>Sorry, no matches found.</span>,
-      <span>Try searching... baby gorilla?</span>
+      <span>Try searching... scary clowns?</span>
     ] : [
       <span>Please enter a search condition</span>,
-      <span>May we suggest... robot kittens?</span>
+      <span>May we suggest... gorillas?</span>
     ];
   }
 

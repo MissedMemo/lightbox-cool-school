@@ -4,35 +4,70 @@ import axios from 'axios';
 
 export function searchImages( searchTerms ) {
 
-  //const results = fakeAjaxRequest( searchTerms );
+  return function(dispatch) {
+
+    if( searchTerms === 'TEST' ) {
+      let imageData = queryLoremPixelAPI( 'animals' );
+      dispatch( successAction( imageData ) );
+    }
+
+    else queryGoogleSearchAPI( searchTerms )
+      .then((response) => {
+        let imageData = extractValidItems( response.data );
+        dispatch( successAction( imageData ) );
+      })
+      .catch((err) => {
+        dispatch( errorAction(err) );
+      });
+  };
+}
+
+function queryLoremPixelAPI( searchTerm ) {
+  
+  let numImages = 20;
+  let images = [];
+
+  while( numImages-- ) {
+
+    // Random height & width between 100-300px
+    var imageHeight = Math.floor(Math.random() * 200) + 100;
+    var imageWidth = Math.floor(Math.random() * 200) + 100;
+
+    var randomImageUrl = [
+      'http://lorempixel.com', imageHeight, imageWidth, searchTerm
+    ].join('/');
+    
+    images.push({
+      urlThumnail: randomImageUrl,
+      urlFullSize: randomImageUrl,
+      caption: 'fake image caption'
+    });
+  }
+
+  return images;
+}
+
+function queryGoogleSearchAPI( searchTerms ) {
+
   const query = 'https://www.googleapis.com/customsearch/v1?'
               + 'key=AIzaSyDRNg12al500nvBg4w9vXxHxqMt4iVPgLA'
               + '&cx=013785967554816369765:m8ndxwd7vzw'
               + '&safe=medium'
               + '&q=' + searchTerms;
 
-  return function(dispatch) {
-    axios.get( query )
-      .then((response) => {
-        dispatch( createSuccessAction(response.data) );
-      })
-      .catch((err) => {
-        dispatch( createErrorAction(err) );
-      });
-  };
-
+  return axios.get( query );
 }
 
 
-function createSuccessAction( searchResults ) {
+function successAction( imageData ) {
   return {
     type: SEARCH_IMAGES_SUCCESS,
-    payload: extractValidItems( searchResults )
+    payload: imageData
   };
 }
 
 
-function createErrorAction( error ) {
+function errorAction( error ) {
   return {
     type: SEARCH_IMAGES_ERROR,
     payload: error
@@ -71,18 +106,3 @@ function extractImageData( data ) {
     };
   }
 }
-
-
-function fakeAjaxRequest( searchTerms ) {
-  
-  let results = [];
-
-  if( searchTerms !== 'NO_RESULTS' ) {
-    for( let i = 0; i < 40; i++ ) {
-      results.push( { caption: `image${ i + 1 }` } );
-    }
-  }
-  
-  return results;
-}
-
