@@ -1,7 +1,7 @@
 import * as id from '../actions/action-types';
 
 
-export default function( state = [], action ) {
+export default function( state = null, action ) {
 
   switch ( action.type ) {
 

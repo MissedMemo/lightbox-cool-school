@@ -10,6 +10,9 @@ export function searchImages( searchTerms ) {
       let imageData = queryLoremPixelAPI( 'animals' );
       dispatch( successAction( imageData ) );
     }
+    else if( searchTerms === 'TEST-EMPTY' ) {
+      dispatch( successAction([]) );
+    }
 
     else queryGoogleSearchAPI( searchTerms )
       .then((response) => {
@@ -17,6 +20,7 @@ export function searchImages( searchTerms ) {
         dispatch( successAction( imageData ) );
       })
       .catch((err) => {
+        console.log('error!:', err );
         dispatch( errorAction(err) );
       });
   };
