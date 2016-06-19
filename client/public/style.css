@@ -128,13 +128,17 @@ body {
 .results-container .image-tile {
   width: 200px;
   height: 200px;
-  line-height: 200px;
   margin: 8px;
-  color: white;
-  font-weight: bold;
-  font-size: 2em;
-  text-align: center;
-  background-color: lightblue;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.image-tile img { /* full resolution, vert. clipped & centered */
+  width: 100%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
 
 /********************************

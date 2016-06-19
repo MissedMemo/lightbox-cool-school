@@ -8,7 +8,7 @@ import ImageTile from '../components/image-tile';
 class SearchResults extends Component {
 
   renderResults( searchResults ) {
-    return searchResults.map( item => <ImageTile data={ item } /> );
+    return searchResults.map( item => <ImageTile url={ item.urlThumnail } index={0} /> );
     /* Would explicit <ul> & <li> improve performance, due to 'key'? */
   }
 

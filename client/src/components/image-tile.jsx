@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 
-export default ({data}) => {
-  console.log(data)
+export default ({ url, index }) => {
   return <div className='image-tile'>
-    {data.caption}
+    <img src={ url } data-index={ index } />
   </div>
 };
