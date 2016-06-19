@@ -6,13 +6,17 @@ import ImageTile from '../components/image-tile';
 
 class SearchResults extends Component {
 
+  renderable( imageList ) {
+    return imageList && imageList.length > 0;
+  }
+
   renderImages( images ) {
     return images.map( image => <ImageTile url={ image.urlThumnail } index={0} /> );
     /* Q: Would explicit <ul> & <li> reduce amount of rendering, due to 'key'? */
   }
 
   render() {
-    return this.props.images ? <div className='images-container'>
+    return this.renderable(this.props.images) ? <div className='images-container'>
       { this.renderImages( this.props.images ) }
     </div> : null;
   }
