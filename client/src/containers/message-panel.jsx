@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+
 
 class MessagePanel extends Component {
 
@@ -13,7 +15,7 @@ class MessagePanel extends Component {
   }
 
   render() {
-    return <div className='message-container'>
+    return this.props.images ? null : <div className='message-container'>
       <span className={ this.state.isError ? 'error' : null }>
         { this.state.line1 }
       </span>
@@ -25,4 +27,9 @@ class MessagePanel extends Component {
   
 };
 
-export default MessagePanel;
+// Note: same-name methods eliminates need to specify state or object key!
+function mapStateToProps({images}) {
+  return { images };
+};
+
+export default connect( mapStateToProps )(MessagePanel);
