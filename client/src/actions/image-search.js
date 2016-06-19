@@ -24,27 +24,25 @@ export function searchImages( searchTerms ) {
 
 function queryLoremPixelAPI( searchTerm ) {
   
-  let numImages = 20;
-  let images = [];
+  let numImages = 40;
+  let imageData = [];
 
   while( numImages-- ) {
 
     // Random height & width between 100-300px
-    var imageHeight = Math.floor(Math.random() * 200) + 100;
-    var imageWidth = Math.floor(Math.random() * 200) + 100;
+    let imageHeight = Math.floor(Math.random() * 200) + 100;
+    let imageWidth = Math.floor(Math.random() * 200) + 100;
 
-    var randomImageUrl = [
-      'http://lorempixel.com', imageHeight, imageWidth, searchTerm
-    ].join('/');
+    let randomImageUrl = `http://lorempixel.com/${imageHeight}/${imageWidth}/${searchTerm}`;
     
-    images.push({
+    imageData.push({
       urlThumnail: randomImageUrl,
       urlFullSize: randomImageUrl,
       caption: 'fake image caption'
     });
   }
 
-  return images;
+  return imageData;
 }
 
 function queryGoogleSearchAPI( searchTerms ) {
@@ -77,7 +75,7 @@ function errorAction( error ) {
 
 function extractValidItems( results ) {
 
-  let validItems = [];
+  let imageData = [];
 
   if( results.searchInformation.totalResults > 0 ) {
 
@@ -87,12 +85,12 @@ function extractValidItems( results ) {
 
       if( image ) {
         image.caption = item.title;
-        validItems.push( image );
+        imageData.push( image );
       }
     });
   }
 
-  return validItems;
+  return imageData;
 }
 
 
