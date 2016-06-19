@@ -108,12 +108,12 @@ body {
   background-color: lightgray;
 }
 
-/* If we revert to using <ul> and <li> in results container,
+/* If we revert to using <ul> and <li> in images container,
    we'll have to move 'display', 'wrap', and 'align-content'
    specifications into the ul selector.
 */
 
-.main .results-container {
+.main .images-container {
   -webkit-flex: 1; /* Safari */
   flex:         1;
   display: -webkit-flex; /* Safari */
@@ -124,7 +124,7 @@ body {
   overflow: auto;
 }
 
-.results-container .image-tile {
+.images-container .image-tile {
   width: 200px;
   height: 160px;
   margin: 4px;

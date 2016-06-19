@@ -6,21 +6,21 @@ import ImageTile from '../components/image-tile';
 
 class SearchResults extends Component {
 
-  renderImages( searchResults ) {
-    return searchResults.map( item => <ImageTile url={ item.urlThumnail } index={0} /> );
-    /* Q: Would explicit <ul> & <li> reduce rendering, due to 'key'? */
+  renderImages( images ) {
+    return images.map( image => <ImageTile url={ image.urlThumnail } index={0} /> );
+    /* Q: Would explicit <ul> & <li> reduce amount of rendering, due to 'key'? */
   }
 
   render() {
-    return this.props.results ? <div className='results-container'>
-      { this.renderImages( this.props.results ) }
+    return this.props.images ? <div className='images-container'>
+      { this.renderImages( this.props.images ) }
     </div> : null;
   }
 };
 
 // Note: same-name methods eliminates need to specify state or object key!
-function mapStateToProps({results}) {
-  return { results };
+function mapStateToProps({images}) {
+  return { images };
 };
 
 export default connect( mapStateToProps )(SearchResults);
