@@ -13,9 +13,18 @@ class MessagePanel extends Component {
 
   render() {
 
+    let error = this.props.error;
     let images = this.props.images;
 
-    if( !images ) {
+    if( error ) {
+      return this.message(
+        `Server Error - ${error.message}`,
+        `reason: ${error.reason}`,
+        true
+      );
+    }
+
+    else if( !images ) {
       return this.message( 'Please enter a search condition', 'May we suggest... gorillas?' );
     }
 
@@ -29,8 +38,8 @@ class MessagePanel extends Component {
 };
 
 // Note: same-name methods eliminates need to specify state or object key!
-function mapStateToProps({images}) {
-  return { images };
+function mapStateToProps({images,error}) {
+  return { images, error };
 };
 
 export default connect( mapStateToProps )(MessagePanel);

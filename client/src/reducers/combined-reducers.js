@@ -1,8 +1,9 @@
 import {combineReducers} from 'redux';
-import ImageSearchReducer from './reducer-image-search';
+import { searchSuccessReducer, searchErrorReducer } from './reducer-image-search';
 
 const rootReducer = combineReducers({
-  images: ImageSearchReducer
+  images: searchSuccessReducer,
+  error: searchErrorReducer
 });
 
 export default rootReducer;

@@ -7,7 +7,7 @@ export function searchImages( searchTerms ) {
   return function(dispatch) {
 
     if( searchTerms === 'TEST' ) {
-      let imageData = queryLoremPixelAPI( 'animals' );
+      let imageData = queryLoremPixelAPI( 'cats' );
       dispatch( successAction( imageData ) );
     }
     else if( searchTerms === 'TEST-EMPTY' ) {
@@ -21,7 +21,8 @@ export function searchImages( searchTerms ) {
       })
       .catch((err) => {
         console.log('error!:', err );
-        dispatch( errorAction(err) );
+        let errorDetails = extractErrorDetails( err.data );
+        dispatch( errorAction( errorDetails) );
       });
   };
 }
@@ -107,4 +108,15 @@ function extractImageData( data ) {
       urlFullSize: data.cse_image[0].src
     };
   }
+}
+
+
+function extractErrorDetails( errorData ) {
+
+  let details = errorData.error.errors[0];
+  
+  return {
+    message: details.message,
+    reason: details.reason
+  };
 }
