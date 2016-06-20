@@ -24,15 +24,15 @@ class MessagePanel extends Component {
       );
     }
 
-    else if( !images ) {
-      return this.message( 'Please enter a search condition', 'May we suggest... gorillas?' );
+    else if( images ) {
+      return images.length > 0 ?
+             null : // hide message area, so that images can be displayed!
+             this.message( 'No matches found.', 'Try searching... scary clowns?' );
     }
 
-    else if( images.length === 0 ) {
-      return this.message( 'No matches found.', 'Try searching... scary clowns?' );
-    }
-
-    else return null;
+    else return this.message(
+      'Please enter a search condition', 'May we suggest... gorillas?'
+    );
   }
   
 };
