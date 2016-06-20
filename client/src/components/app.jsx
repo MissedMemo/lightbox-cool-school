@@ -6,6 +6,8 @@ import SearchBar from '../containers/searchbar';
 import SearchResults from '../containers/search-results';
 import MessagePanel from '../containers/message-panel';
 
+import LightBox from './lightbox'; // reference this from an npm lib later!
+
 export default () => <div className='app'>
   <Header text='Perfect Image' >
     <SearchBar />
@@ -15,4 +17,5 @@ export default () => <div className='app'>
     <SearchResults />
     <MessagePanel />
   </div>
+  <LightBox />
 </div>;
