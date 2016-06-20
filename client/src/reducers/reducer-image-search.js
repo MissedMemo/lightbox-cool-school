@@ -1,5 +1,10 @@
 import * as id from '../actions/action-types';
 
+/*
+ Note: success and error conditions are mutually-exclusive! Ok for now,
+ but other ways to handle this include a third, combined reducer etc.
+ see: https://github.com/reactjs/redux/issues/749
+*/
 
 export function searchSuccessReducer( state = null, action ) {
   switch ( action.type ) {
