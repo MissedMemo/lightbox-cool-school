@@ -66,6 +66,13 @@ class LightBox extends Component {
            onClick={ () => this.displayOverlay(false) }>
            X
         </a>
+        <div className='image-area'>
+          <button className='nav-arrow arrow-previous'>&lsaquo;</button>
+          <button className='nav-arrow arrow-next'>&rsaquo;</button>
+        </div>
+        <div className='caption-bar'>
+          <span>( no caption )</span>
+        </div>
       </div>
     </div> : null;
   }
