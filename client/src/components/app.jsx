@@ -17,5 +17,5 @@ export default () => <div className='app'>
     <SearchResults />
     <MessagePanel />
   </div>
-  <LightBox />
+  <LightBox margins='140px 20px 20px 20px' />
 </div>;

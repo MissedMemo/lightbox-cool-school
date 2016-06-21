@@ -12,6 +12,7 @@ class LightBox extends Component {
     super(props);
 
     this.displayOverlay = this.displayOverlay.bind(this);
+    this.setMargins = this.setMargins.bind(this);
     this.displayImage = this.displayImage.bind(this);
     this.imageClickHandler = this.imageClickHandler.bind(this);
 
@@ -19,7 +20,8 @@ class LightBox extends Component {
     document.body.addEventListener( 'click', this.imageClickHandler, false );
 
     this.state = {
-      visible: false
+      visible: false,
+      wantMargins: !!props.margins
     }
   }
 
@@ -41,9 +43,24 @@ class LightBox extends Component {
     console.log('display image #', index );
   }
 
+  setMargins( lightbox ) {
+    /*
+     ref is UNDEFINED on componentDidMount etc., so we access it
+     during initial actual render -- note that it becomes undefined
+     AGAIN when we render null to close the overlay.
+    */
+    var margins = this.props.margins.split(' ');
+    lightbox.style.top = margins[0];
+    lightbox.style.right = margins[1];
+    lightbox.style.bottom = margins[2];
+    lightbox.style.left = margins[3];
+    this.setState({wantMargins: false});
+  }
+
   render() {
     return this.state.visible ? <div className='overlay'>
-      <div className='lightbox'>
+      <div className='lightbox'
+        ref={ lightbox => this.state.wantMargins && this.setMargins(lightbox) }>
         <a href='#'
            className='close-button'
            onClick={ () => this.displayOverlay(false) }>
