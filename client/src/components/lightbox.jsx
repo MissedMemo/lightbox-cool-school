@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 
 /*
  Implement as a straight React component (no Redux), with
@@ -12,7 +11,8 @@ class LightBox extends Component {
   constructor(props) {
     super(props);
 
-    this.display = this.display.bind(this);
+    this.displayOverlay = this.displayOverlay.bind(this);
+    this.displayImage = this.displayImage.bind(this);
     this.imageClickHandler = this.imageClickHandler.bind(this);
 
     // ONE listener for ALL image clicks
@@ -26,21 +26,29 @@ class LightBox extends Component {
   imageClickHandler( e ) {
     // We only care about images explicitly tagged as 'lightboxable'
     if( e.target.className === 'lightboxable' ) {
-      this.display(true)
+      this.displayOverlay(true)
       document.body.classList.add('disable-scrolling');
-      //displayImage( +e.target.dataset.index );
+      this.displayImage( +e.target.dataset.index );
       e.stopPropagation();
     }
   }
 
-  display( visible ) {
+  displayOverlay( visible ) {
     this.setState({ visible });
+  }
+
+  displayImage( index ) {
+    console.log('display image #', index );
   }
 
   render() {
     return this.state.visible ? <div className='overlay'>
       <div className='lightbox'>
-        <a href='#' className='close-button' onClick={ () => this.display(false) }>X</a>
+        <a href='#'
+           className='close-button'
+           onClick={ () => this.displayOverlay(false) }>
+           X
+        </a>
       </div>
     </div> : null;
   }
