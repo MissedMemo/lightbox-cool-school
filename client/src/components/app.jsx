@@ -17,5 +17,5 @@ export default () => <div className='app'>
     <SearchResults />
     <MessagePanel />
   </div>
-  <LightBox />
+  <LightBox observe='images-container' />
 </div>;

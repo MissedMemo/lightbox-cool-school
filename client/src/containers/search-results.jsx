@@ -16,9 +16,10 @@ class SearchResults extends Component {
   }
 
   render() {
-    return this.renderable(this.props.images) ? <div className='images-container'>
-      { this.renderImages( this.props.images ) }
-    </div> : null;
+    return this.renderable(this.props.images) ?
+      <div className='images-container'>
+        { this.renderImages( this.props.images ) }
+      </div> : null;
   }
 };
 
