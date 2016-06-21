@@ -15,7 +15,7 @@ class LightBox extends Component {
     this.display = this.display.bind(this);
     this.imageClickHandler = this.imageClickHandler.bind(this);
 
-    // ONE listener to handle ALL image clicks
+    // ONE listener for ALL image clicks
     document.body.addEventListener( 'click', this.imageClickHandler, false );
 
     this.state = {
@@ -23,20 +23,14 @@ class LightBox extends Component {
     }
   }
 
-
   imageClickHandler( e ) {
+    // We only care about images explicitly tagged as 'lightboxable'
     if( e.target.className === 'lightboxable' ) {
       this.display(true)
       document.body.classList.add('disable-scrolling');
       //displayImage( +e.target.dataset.index );
       e.stopPropagation();
     }
-  }
-
-
-  componentDidMount() {
-
-    
   }
 
   display( visible ) {
