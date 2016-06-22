@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
 
-export default ({ url, index }) => {
+export default ({ data, index }) => {
+
   return <div className='image-tile'>
-    <img src={ url } data-index={ index } className='lightboxable' />
+    <img
+      src={ data.urlThumnail }
+      data-imageurl={ data.urlFullSize }
+      data-caption={ data.caption }
+      data-index={ index }
+    />
   </div>
 };

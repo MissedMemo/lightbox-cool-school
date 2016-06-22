@@ -84,7 +84,7 @@ function extractValidItems( results ) {
 
   if( results.searchInformation.totalResults > 0 ) {
 
-    results.items.forEach( function( item ) {
+    results.items.forEach( function(item) {
 
       let image = extractImageData( item.pagemap );
 

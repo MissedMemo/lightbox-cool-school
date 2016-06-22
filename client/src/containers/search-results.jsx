@@ -11,14 +11,14 @@ class SearchResults extends Component {
   }
 
   renderImages( images ) {
-    return images.map( image => <ImageTile url={ image.urlThumnail } index={0} /> );
+    return images.map( (image,i) => <ImageTile data={image} index={i} /> );
     /* Q: Would explicit <ul> & <li> reduce amount of rendering, due to 'key'? */
   }
 
   render() {
     return this.renderable(this.props.images) ?
       <div className='images-container'>
-        { this.renderImages( this.props.images ) }
+        { this.renderImages(this.props.images) }
       </div> : null;
   }
 };

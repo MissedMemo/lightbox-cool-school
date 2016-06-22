@@ -13,24 +13,29 @@ class LightBox extends Component {
 
     this.displayOverlay = this.displayOverlay.bind(this);
     this.setMargins = this.setMargins.bind(this);
-    this.displayImage = this.displayImage.bind(this);
     this.imageClickHandler = this.imageClickHandler.bind(this);
+    this.buildImageList = this.buildImageList.bind(this);
 
     // ONE listener for ALL image clicks
     document.body.addEventListener( 'click', this.imageClickHandler, false );
 
     this.state = {
       visible: false,
-      wantMargins: !!props.margins
+      wantMargins: !!props.margins,
+      imageList: [],
+      currentImage: null
     }
   }
 
   imageClickHandler( e ) {
-    // We only care about images explicitly tagged as 'lightboxable'
-    if( e.target.className === 'lightboxable' ) {
-      this.displayOverlay(true)
+
+    // Ignore clicks on elements not tagged with lightbox attributes
+
+    if( e.target.dataset.imageurl ) {
+      this.displayOverlay(true);
       document.body.classList.add('disable-scrolling');
-      this.displayImage( +e.target.dataset.index );
+      this.setState({ imageList: this.buildImageList(e.target) });
+      console.log('imageList is:', this.state.imageList );
       e.stopPropagation();
     }
   }
@@ -39,8 +44,18 @@ class LightBox extends Component {
     this.setState({ visible });
   }
 
-  displayImage( index ) {
-    console.log('display image #', index );
+  buildImageList( node ) {
+
+    let list = [];
+
+    let lightboxImage = {
+      url: node.dataset.imageurl,
+      caption: node.dataset.caption,
+      index: node.dataset.index
+    }
+    list.push( lightboxImage );
+
+    return list;
   }
 
   setMargins( lightbox ) {
@@ -58,6 +73,10 @@ class LightBox extends Component {
   }
 
   render() {
+
+    console.log( this.state );
+    let image = this.state.imageList[ this.state.currentImage ];
+
     return this.state.visible ? <div className='overlay'>
       <div className='lightbox'
         ref={ lightbox => this.state.wantMargins && this.setMargins(lightbox) }>
@@ -71,7 +90,7 @@ class LightBox extends Component {
           <button className='nav-arrow arrow-next'>&rsaquo;</button>
         </div>
         <div className='caption-bar'>
-          <span>( no caption )</span>
+          <span>{ image ? image.caption: '(no caption)' }</span>
         </div>
       </div>
     </div> : null;
