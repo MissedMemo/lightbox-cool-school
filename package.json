@@ -1,6 +1,8 @@
 {
   "scripts": {
     "start": "webpack -p && node server.js",
+    "dev": "webpack -d && node server.js",
+    "test": "tape-babel-css-modules client/tests/**/*.test.js | faucet",
     "heroku-postbuild": "webpack -p"
   },
   "dependencies": {
@@ -15,5 +17,13 @@
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
     "webpack": "^1.13.1"
+  },
+  "devDependencies": {
+    "enzyme": "^2.3.0",
+    "faucet": "0.0.1",
+    "jsdom": "^9.4.1",
+    "react-addons-test-utils": "^15.2.0",
+    "tape": "^4.6.0",
+    "tape-babel-css-modules": "^1.2.1"
   }
 }

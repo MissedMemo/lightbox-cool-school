@@ -10,8 +10,7 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       loader: 'babel',
-      include: __dirname + '/client/src',
-      query: { presets: ['react','es2015'] }
+      include: __dirname + '/client/src'
     }]
   },
   resolve: {
