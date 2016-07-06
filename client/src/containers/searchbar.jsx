@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { searchImages } from '../actions/image-search';
 
 
-class SearchBar extends Component {
+// export both class AND 'connect' wrapper, for unit testing
+
+export class SearchBar extends Component {
 
   constructor(props) {
     super(props);

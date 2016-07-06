@@ -10,8 +10,9 @@ test( 'Main page header...', assert => {
 
   assert.test( '  - should contain a nested SearchBar child component', assert => {
     assert.plan(1);
-    const wrapper = shallow( <App /> ).find( Header );
-    assert.equal( wrapper.find( SearchBar ).length, 1 );
+    const wrapper = shallow( <App /> );
+    const header = wrapper.find( Header );
+    assert.equal( header.find( SearchBar ).length, 1 );
   });
 
   assert.test( '  - should display passed branding text', assert => {
