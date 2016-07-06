@@ -13,32 +13,32 @@ test( 'Main layout...', assert => {
 
   assert.test( '  - should contain a fat header', assert => {
     assert.plan(1);
-    const node = shallow( <App /> );
-    assert.equal( node.find( Header ).length, 1 );
+    const wrapper = shallow( <App /> );
+    assert.equal( wrapper.find( Header ).length, 1 );
   });
 
   assert.test( '  - should contain a settings panel', assert => {
     assert.plan(1);
-    const node = shallow( <App /> );
-    assert.equal( node.find( SettingsPanel ).length, 1 );
+    const wrapper = shallow( <App /> );
+    assert.equal( wrapper.find( SettingsPanel ).length, 1 );
   });
 
   assert.test( '  - should contain a search results area', assert => {
     assert.plan(1);
-    const node = shallow( <App /> );
-    assert.equal( node.find( SearchResults ).length, 1 );
+    const wrapper = shallow( <App /> );
+    assert.equal( wrapper.find( SearchResults ).length, 1 );
   });
 
   assert.test( '  - should contain a message panel', assert => {
     assert.plan(1);
-    const node = shallow( <App /> );
-    assert.equal( node.find( MessagePanel ).length, 1 );
+    const wrapper = shallow( <App /> );
+    assert.equal( wrapper.find( MessagePanel ).length, 1 );
   });
 
   assert.test( '  - should contain a LightBox!', assert => {
     assert.plan(1);
-    const node = shallow( <App /> );
-    assert.equal( node.find( LightBox ).length, 1 );
+    const wrapper = shallow( <App /> );
+    assert.equal( wrapper.find( LightBox ).length, 1 );
   });
 
 });
