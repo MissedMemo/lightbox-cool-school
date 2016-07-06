@@ -16,7 +16,7 @@ test( 'Main page header...', assert => {
 
   assert.test( '  - should display passed branding text', assert => {
     assert.plan(1);
-    const brandingText = "Branded!"
+    const brandingText = 'Branded!';
     const wrapper = shallow( <Header text={ brandingText } /> );
     assert.equal( wrapper.find( '.branding' ).text(), brandingText );
   });
