@@ -1,6 +1,7 @@
 import React from 'react';
 import test from 'tape';
 import { shallow } from 'enzyme';
+import sinon from 'sinon';
 
 import {SearchBar} from '../../src/containers/searchbar';
 
@@ -31,28 +32,18 @@ test( 'SearchBar: search button enable/disable...', assert => {
 
 });
 
-test( 'SearchBar: submitting queries...', assert => {
+test.skip( 'SearchBar: submitting queries...', assert => {
 
-  assert.test( '  - should submit a query when button is clicked', assert => {
-    const wrapper = shallow( <SearchBar /> );
-    assert.ok(true);
-    assert.end();
-    /*
-    const onSearchStub = sinon.spy();
-    const wrapper = shallow(<SearchBar onSearch={onSearchStub}/>);
-    const searchField = wrapper.find('input');
-    const event1 = {target: {value: 'cat'}};
-    const event2 = {target: {value: 'cats'}};
+  const onSearchStub = sinon.spy();
+  const wrapper = shallow( <SearchBar /> );
 
-    searchField.simulate('change', event1);
-    searchField.simulate('change', event2);
-    assert.equal(onSearchStub.calledTwice, true);
-    */
+  assert.test( '- should submit a query when button is clicked', assert => {
+    wrapper.find('input').simulate( 'change', { target: {value: 'abc'} } );
+    console.log( wrapper.debug() );
+    wrapper.find('button').simulate('click');
+    assert.equal( onSearchStub.calledOnce, true );
   });
 
-  assert.test( '  - should submit a query when `enter` key is pressed', assert => {
-    assert.ok(true);
-    assert.end();
-  });
+  //- should submit a query when `enter` key is pressed'
 
 });

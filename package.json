@@ -2,7 +2,7 @@
   "scripts": {
     "start": "webpack -p && node server.js",
     "dev": "webpack -d && node server.js",
-    "test": "tape-babel-css-modules client/tests/**/*.test.js | faucet",
+    "test": "tape-babel-css-modules client/tests/**/*.test.js",
     "heroku-postbuild": "webpack -p"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "faucet": "0.0.1",
     "jsdom": "^9.4.1",
     "react-addons-test-utils": "^15.2.0",
+    "sinon": "^1.17.4",
     "tape": "^4.6.0",
     "tape-babel-css-modules": "^1.2.1"
   }
