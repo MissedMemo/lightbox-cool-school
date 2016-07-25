@@ -1,10 +1,12 @@
+//import '../setup'; // must precede ref to React!
 import React from 'react';
-import test from 'tape';
-import { shallow } from 'enzyme';
+import { expect } from 'chai';
+import { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
 
 import {SearchBar} from '../../src/containers/searchbar';
 
+/*
 test( 'SearchBar: search button enable/disable...', assert => {
 
   const wrapper = shallow( <SearchBar /> );
@@ -47,3 +49,4 @@ test.skip( 'SearchBar: submitting queries...', assert => {
   //- should submit a query when `enter` key is pressed'
 
 });
+*/

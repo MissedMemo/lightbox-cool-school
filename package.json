@@ -2,7 +2,7 @@
   "scripts": {
     "start": "webpack -p && node server.js",
     "dev": "webpack -d && node server.js",
-    "test": "tape-babel-css-modules client/tests/**/*.test.js",
+    "test": "mocha client/tests/* --require babel-core/register",
     "heroku-postbuild": "webpack -p"
   },
   "dependencies": {
@@ -19,12 +19,10 @@
     "webpack": "^1.13.1"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "enzyme": "^2.3.0",
-    "faucet": "0.0.1",
     "jsdom": "^9.4.1",
     "react-addons-test-utils": "^15.2.0",
-    "sinon": "^1.17.4",
-    "tape": "^4.6.0",
-    "tape-babel-css-modules": "^1.2.1"
+    "sinon": "^1.17.4"
   }
 }

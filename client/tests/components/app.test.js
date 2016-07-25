@@ -1,7 +1,8 @@
 import React from 'react';
-import test from 'tape';
-import {shallow} from 'enzyme';
+import { expect } from 'chai';
+import { shallow } from 'enzyme';
 
+// Test for contained views using exported default connect, NOT exported class!
 import App from '../../src/components/app';
 import Header from '../../src/components/header';
 import SettingsPanel from '../../src/components/settings-panel';
@@ -9,36 +10,31 @@ import SearchResults from '../../src/containers/search-results';
 import MessagePanel from '../../src/containers/message-panel';
 import LightBox from '../../src/components/lightbox';
 
-test( 'Main layout...', assert => {
+describe( 'Main Layout...', () => {
 
-  assert.test( '  - should contain a fat header', assert => {
-    assert.plan(1);
+  it( 'should contain a fat header', () => {
     const wrapper = shallow( <App /> );
-    assert.equal( wrapper.find( Header ).length, 1 );
+    expect( wrapper.find( Header ) ).to.exist;
   });
 
-  assert.test( '  - should contain a settings panel', assert => {
-    assert.plan(1);
+  it( 'should contain a settings panel', () => {
     const wrapper = shallow( <App /> );
-    assert.equal( wrapper.find( SettingsPanel ).length, 1 );
+    expect( wrapper.find( SettingsPanel ) ).to.exist;
   });
 
-  assert.test( '  - should contain a search results area', assert => {
-    assert.plan(1);
+  it( 'should contain a search results area', () => {
     const wrapper = shallow( <App /> );
-    assert.equal( wrapper.find( SearchResults ).length, 1 );
+    expect( wrapper.find( SearchResults ) ).to.exist;
   });
 
-  assert.test( '  - should contain a message panel', assert => {
-    assert.plan(1);
+  it( 'should contain a message panel', () => {
     const wrapper = shallow( <App /> );
-    assert.equal( wrapper.find( MessagePanel ).length, 1 );
+    expect( wrapper.find( MessagePanel ) ).to.exist;
   });
 
-  assert.test( '  - should contain a LightBox!', assert => {
-    assert.plan(1);
+  it( 'should contain a LightBox!', () => {
     const wrapper = shallow( <App /> );
-    assert.equal( wrapper.find( LightBox ).length, 1 );
+    expect( wrapper.find( LightBox ) ).to.exist;
   });
-
+  
 });
