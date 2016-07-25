@@ -6,33 +6,44 @@ import sinon from 'sinon';
 
 import {SearchBar} from '../../src/containers/searchbar';
 
-/*
-test( 'SearchBar: search button enable/disable...', assert => {
 
-  const wrapper = shallow( <SearchBar /> );
-  const input = wrapper.find('input');
-  let button = wrapper.find('button'); // update, to get changed state
+describe( 'SearchBar...', function() {
 
-  assert.test( '- should initially be disabled', assert => {
-    assert.equal( button.prop('disabled'), true );
-    assert.end();
+  describe( 'button enable/disable:', function() {
+
+    const wrapper = shallow( <SearchBar /> );
+    const input = wrapper.find('input');
+    let button = wrapper.find('button'); // not const, to enable state change
+
+    it( 'should initially display button as disabled', () => {
+      expect( button.prop('disabled') ).to.be.true;
+    });
+
+    it( 'should display button as enabled when input field contains text', () => {
+      input.simulate( 'change', { target: {value: 'abc'} } );
+      button = wrapper.find('button'); // pick up NEW state
+      expect( button.prop('disabled') ).to.be.false;
+    });
+
+    it( 'should revert to disabled when input field is empty', () => {
+      input.simulate( 'change', { target: {value: ''} } );
+      button = wrapper.find('button'); // NEW state
+      expect( button.prop('disabled') ).to.be.true;
+    });
+
   });
-  
-  assert.test( '- should be enabled when input field contains text', assert => {
-    input.simulate( 'change', { target: {value: 'abc'} } );
-    button = wrapper.find('button'); // pick up NEW state
-    assert.equal( button.prop('disabled'), false );
-    assert.end();
-  });
 
-  assert.test( '- should revert to disabled when input field is empty', assert => {
-    input.simulate( 'change', { target: {value: ''} } );
-    button = wrapper.find('button'); // pick up NEW state
-    assert.equal( button.prop('disabled'), true );
-    assert.end();
+  describe( 'submitting queries:', function() {
+
+    it( 'should submit a query when button is clicked' );
+    it( 'should submit a query when `enter` key is pressed' );
+
   });
 
 });
+
+/*
+
 
 test.skip( 'SearchBar: submitting queries...', assert => {
 
