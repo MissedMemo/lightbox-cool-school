@@ -38,26 +38,31 @@ describe( 'SearchBar...', function() {
     it( 'should submit a query when button is clicked' );
     it( 'should submit a query when `enter` key is pressed' );
 
+    /*
+    it( 'should submit a query when button is clicked', function() {
+
+      const wrapper = shallow( <SearchBar /> );
+      let form = wrapper.find('form');
+      console.log( form.debug() );
+      const onSearchStub = sinon.spy( form, 'onSubmit' );
+
+      wrapper.find('input').simulate( 'change', { target: {value: 'abc'} } );
+      wrapper.find('button').simulate('click');
+      expect( onSearchStub.calledOnce ).to.be.true;
+    });
+    */
+
+    /*
+    it( 'should submit a query when button is clicked', function() {
+
+      const onSearchStub = sinon.spy();
+      const wrapper = shallow( <SearchBar onSubmit={ onSearchStub } /> );
+      wrapper.find('input').simulate( 'change', { target: {value: 'abc'} } );
+      wrapper.find('button').simulate('click');
+      //console.log( wrapper.debug() );
+      expect( onSearchStub.calledOnce ).to.be.true;
+    });
+    */
   });
 
 });
-
-/*
-
-
-test.skip( 'SearchBar: submitting queries...', assert => {
-
-  const onSearchStub = sinon.spy();
-  const wrapper = shallow( <SearchBar /> );
-
-  assert.test( '- should submit a query when button is clicked', assert => {
-    wrapper.find('input').simulate( 'change', { target: {value: 'abc'} } );
-    console.log( wrapper.debug() );
-    wrapper.find('button').simulate('click');
-    assert.equal( onSearchStub.calledOnce, true );
-  });
-
-  //- should submit a query when `enter` key is pressed'
-
-});
-*/
